@@ -1,0 +1,480 @@
+/* ==========================================================================
+   SAMSONITE - COMPONENTS CSS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LOBBY VIEW COMPONENTS
+   -------------------------------------------------------------------------- */
+.lobby-card {
+  width: 100%;
+  background: rgba(20, 25, 40, 0.85);
+  border: 3px solid var(--color-fn-purple);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 30px rgba(123, 44, 191, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.badge-level {
+  position: absolute;
+  top: -15px;
+  background: var(--color-legendary-gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.player-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+}
+
+.avatar-ring {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-fn-yellow), var(--color-fn-purple));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  font-size: 1.4rem;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-name {
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.player-status {
+  font-size: 0.75rem;
+  color: var(--color-fn-yellow);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. MEMORY GAME COMPONENTS
+   -------------------------------------------------------------------------- */
+.game-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 20, 35, 0.9);
+  border-radius: 12px;
+  border: 2px solid var(--color-fn-purple);
+  margin-bottom: 1rem;
+}
+
+.header-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-stat .label {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.header-stat .value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-fn-yellow);
+}
+
+.memory-board-wrapper {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  max-height: 480px;
+}
+
+/* Memory Card with Rigid Aspect Ratio & 3D Flip */
+.card {
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  border-radius: 12px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card.matched .card-inner {
+  transform: rotateY(180deg) scale(0.95);
+  filter: drop-shadow(0 0 10px var(--color-fn-yellow));
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Card Back (Cover) */
+.card-back {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+  border-color: var(--color-fn-purple);
+}
+
+.card-back::after {
+  content: 'F';
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-fn-yellow);
+  opacity: 0.8;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* Card Front (Revealed Symbol) */
+.card-front {
+  background: linear-gradient(135deg, #2a2a40 0%, #151525 100%);
+  transform: rotateY(180deg);
+  border-color: var(--color-fn-yellow);
+  padding: 10px;
+}
+
+.card-icon {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.game-footer {
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.game-footer p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. SUPPLY DROP COMPONENTS
+   -------------------------------------------------------------------------- */
+.supply-drop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.drop-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-legendary-gold);
+  text-shadow: 2px 2px 0 #000;
+  margin-bottom: 0.5rem;
+}
+
+.drop-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.supply-drop-crate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  animation: float-drop 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes float-drop {
+  0% { transform: translateY(-300px); opacity: 0; }
+  70% { transform: translateY(20px); opacity: 1; }
+  85% { transform: translateY(-10px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.parachute {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: -15px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+.crate-box {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border: 4px solid var(--color-fn-yellow);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.6), 0 10px 20px rgba(0,0,0,0.5);
+  transition: transform 0.1s ease;
+}
+
+.crate-icon {
+  font-size: 3.5rem;
+}
+
+.crate-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 20px;
+  background: radial-gradient(circle, rgba(255, 234, 0, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.supply-drop-crate:hover .crate-glow,
+.supply-drop-crate:active .crate-glow {
+  opacity: 1;
+}
+
+.progress-container {
+  width: 80%;
+  max-width: 280px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--color-fn-yellow);
+  border-radius: 10px;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-fn-yellow), var(--color-legendary-gold));
+  transition: width 0.15s ease;
+}
+
+/* --------------------------------------------------------------------------
+   4. VICTORY ROYALE COMPONENTS
+   -------------------------------------------------------------------------- */
+.victory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+}
+
+.victory-banner {
+  background: linear-gradient(180deg, var(--color-fn-yellow) 0%, var(--color-legendary-gold) 100%);
+  border: 4px solid #000;
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  text-align: center;
+  transform: skew(-6deg);
+  box-shadow: 0 8px 20px rgba(255, 183, 3, 0.5);
+  margin-bottom: 1.5rem;
+  width: 100%;
+  animation: banner-bounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes banner-bounce {
+  0% { transform: skew(-6deg) scale(0.3); opacity: 0; }
+  70% { transform: skew(-6deg) scale(1.1); opacity: 1; }
+  100% { transform: skew(-6deg) scale(1); }
+}
+
+.victory-banner h1 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: #000;
+  line-height: 1;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+.victory-banner p {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: #111;
+  margin-top: 4px;
+}
+
+/* 300 SEK Amazon Victory Pass Card */
+.victory-pass-card {
+  width: 100%;
+  background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+  border: 3px solid var(--color-legendary-gold);
+  border-radius: 18px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(255, 183, 3, 0.4), 0 10px 30px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.victory-pass-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.pass-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pass-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-fn-yellow);
+  letter-spacing: 1px;
+}
+
+.pass-badge {
+  background: #000;
+  color: var(--color-legendary-gold);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-legendary-gold);
+}
+
+.pass-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.pass-amount .currency {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-legendary-gold);
+}
+
+.pass-amount .value {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 3px 3px 0 #000, 0 0 20px rgba(255,255,255,0.8);
+}
+
+.pass-body {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.pass-msg {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.pass-submsg {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+.pass-footer {
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.code-label {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.code-value {
+  font-family: monospace;
+  font-weight: 800;
+  color: var(--color-fn-yellow);
+  letter-spacing: 1px;
+}

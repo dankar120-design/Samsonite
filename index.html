@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Samsonite - Battle Pass Level 10</title>
+
+  <!-- Google Fonts: Luckiest Guy & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+  <!-- Canvas Confetti CDN (Pinned SRI) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Background Animated Particles / Grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- MAIN APP CONTAINER -->
+  <main id="app">
+
+    <!-- 1. LOBBY VIEW -->
+    <section id="lobby-view" class="view active">
+      <div class="lobby-card">
+        <div class="badge-level">LEVEL 10</div>
+        <h1 class="fortnite-title">SAMSONITE</h1>
+        <p class="subtitle">BATTLE PASS 10-ÅRS UNBOXING</p>
+
+        <div class="player-profile">
+          <div class="avatar-ring">
+            <span class="player-avatar">👑</span>
+          </div>
+          <div class="player-info">
+            <span class="player-name">PLAYER: SAM</span>
+            <span class="player-status">REWARD READY TO CLAIM</span>
+          </div>
+        </div>
+
+        <button id="btn-start" class="btn-fortnite primary">
+          <span>START BATTLE PASS</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. MEMORY GAME VIEW -->
+    <section id="memory-view" class="view">
+      <header class="game-header">
+        <div class="header-stat">
+          <span class="label">PLAYER</span>
+          <span class="value">SAM (LVL 10)</span>
+        </div>
+        <div class="header-stat">
+          <span class="label">MATCHES</span>
+          <span id="match-counter" class="value">0 / 5</span>
+        </div>
+      </header>
+
+      <div class="memory-board-wrapper">
+        <div id="memory-grid" class="memory-grid">
+          <!-- Cards injected dynamically by memory.js -->
+        </div>
+      </div>
+
+      <div class="game-footer">
+        <p id="game-hint">Matcha alla 5 par för att låsa upp din Supply Drop!</p>
+      </div>
+    </section>
+
+    <!-- 3. SUPPLY DROP VIEW -->
+    <section id="supply-drop-view" class="view">
+      <div class="supply-drop-container">
+        <h2 class="drop-title">LEGENDARY SUPPLY DROP INCOMING!</h2>
+        <p class="drop-subtitle">Klicka på kistan för att öppna ditt Battle Pass Loot!</p>
+
+        <div id="supply-drop-crate" class="supply-drop-crate">
+          <div class="parachute">🪂</div>
+          <div class="crate-box">
+            <div id="crate-icon" class="crate-icon">📦</div>
+            <div class="crate-glow"></div>
+          </div>
+        </div>
+
+        <div id="drop-progress-bar" class="progress-container">
+          <div id="drop-progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VICTORY ROYALE VIEW -->
+    <section id="victory-view" class="view">
+      <div class="victory-container">
+        <div class="victory-banner">
+          <h1>VICTORY ROYALE!</h1>
+          <p>GRATTIS PÅ 10-ÅRSDAGEN SAM!</p>
+        </div>
+
+        <div class="victory-pass-card">
+          <div class="pass-header">
+            <span class="pass-brand">AMAZON VIP PASS</span>
+            <span class="pass-badge">LEVEL 10</span>
+          </div>
+
+          <div class="pass-amount">
+            <span class="currency">SEK</span>
+            <span class="value">300</span>
+          </div>
+
+          <div class="pass-body">
+            <p class="pass-msg">Du har låst upp 300 kr att shopp loss för på Amazon!</p>
+            <p class="pass-submsg">Squishies, slime & sköna prylar väntar. Säg till pappa när du vill bygga din önskelista! 🛒</p>
+          </div>
+
+          <div class="pass-footer">
+            <span class="code-label">REDEEM CODE:</span>
+            <span class="code-value">SAM-10-VICTORY</span>
+          </div>
+        </div>
+
+        <button id="btn-replay" class="btn-fortnite secondary">
+          <span>SPELA IGEN 🔄</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript Modules (Classic Scripts for 100% GH Pages MIME compatibility) -->
+  <script src="js/assets.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/memory.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

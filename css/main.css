@@ -1,0 +1,186 @@
+/* ==========================================================================
+   SAMSONITE - MAIN CSS & DESIGN SYSTEM (FORTNITE THEME)
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-bg-dark: #0b0e17;
+  --color-fn-purple: #7b2cbf;
+  --color-fn-purple-glow: #9d4edd;
+  --color-fn-yellow: #ffea00;
+  --color-fn-yellow-dark: #ccb700;
+  --color-fn-blue: #00b4d8;
+  --color-legendary-gold: #ffb703;
+  --color-legendary-glow: #fb8500;
+  --color-text-light: #ffffff;
+  --color-text-muted: #a0aab8;
+  
+  /* Fonts */
+  --font-display: 'Luckiest Guy', cursive, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Dimensions */
+  --container-max-width: 480px;
+  --header-height: 60px;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg-dark);
+  font-family: var(--font-body);
+  color: var(--color-text-light);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Background Grid & Vignette */
+.bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(123, 44, 191, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(123, 44, 191, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bg-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 40%, rgba(11, 14, 23, 0.9) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Main App Frame */
+#app {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max-width);
+  height: 100%;
+  max-height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Views Management */
+.view {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.view.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Typography Helpers */
+.fortnite-title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-fn-yellow);
+  text-shadow: 
+    3px 3px 0px #000,
+    -2px -2px 0px #000,
+    2px -2px 0px #000,
+    -2px 2px 0px #000,
+    0px 4px 15px rgba(255, 234, 0, 0.6);
+  text-align: center;
+  transform: skew(-5deg);
+}
+
+.subtitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--color-fn-blue);
+  text-shadow: 2px 2px 0px #000;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Fortnite Styled Buttons */
+.btn-fortnite {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  border: 3px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+  transform: skew(-8deg);
+  transition: transform 0.1s ease, filter 0.2s ease;
+  box-shadow: 0 6px 0 #000, 0 10px 20px rgba(0,0,0,0.5);
+  margin-top: 1.5rem;
+}
+
+.btn-fortnite span {
+  display: block;
+  transform: skew(8deg);
+}
+
+.btn-fortnite.primary {
+  background: linear-gradient(180deg, var(--color-fn-yellow) 0%, var(--color-fn-yellow-dark) 100%);
+  color: #000;
+}
+
+.btn-fortnite.secondary {
+  background: linear-gradient(180deg, var(--color-fn-blue) 0%, #0077b6 100%);
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.btn-fortnite:active {
+  transform: skew(-8deg) translateY(4px);
+  box-shadow: 0 2px 0 #000, 0 5px 10px rgba(0,0,0,0.5);
+}
+
+/* Shake Animation for Feedback */
+@keyframes css-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.shake {
+  animation: css-shake 0.3s ease-in-out;
+}
