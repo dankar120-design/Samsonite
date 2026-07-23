@@ -32,6 +32,7 @@
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 html, body {
@@ -41,6 +42,7 @@ html, body {
   background-color: var(--color-bg-dark);
   font-family: var(--font-body);
   color: var(--color-text-light);
+  touch-action: manipulation;
 }
 
 body {

@@ -46,6 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Prevent double-tap zoom on iOS Safari
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      // Don't prevent default on links or buttons if they need standard activation
+      if (e.target.tagName !== 'A') {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+
   // 2. Start Button Click Handler
   btnStart.addEventListener('click', () => {
     // Unlock iOS Web Audio API
