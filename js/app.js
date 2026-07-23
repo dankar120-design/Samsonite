@@ -141,6 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Replay Button Click Handler
   btnReplay.addEventListener('click', () => {
     soundEngine.playFlip();
+    crateClicks = 0;
+    if (progressFill) progressFill.style.width = '0%';
     startMemoryPhase();
   });
 });

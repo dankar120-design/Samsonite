@@ -325,6 +325,10 @@
   align-items: center;
   width: 100%;
   max-width: 380px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .victory-banner {
@@ -488,4 +492,16 @@
   font-weight: 800;
   color: var(--color-fn-yellow);
   letter-spacing: 1px;
+}
+
+@media (max-height: 680px) {
+  .victory-banner h1 {
+    font-size: 1.8rem;
+  }
+  .pass-amount .value {
+    font-size: 3rem;
+  }
+  .victory-pass-card {
+    padding: 1rem;
+  }
 }

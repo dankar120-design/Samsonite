@@ -10,8 +10,8 @@
     <motivering>Kombinerar Sams favoritspel (Fortnite) med 10-årstemat och belönar honom med presentkortet på ett minnesvärt och roligt sätt.</motivering>
   </record>
   <record id="003" kategori="Ljud & Effekter">
-    <beslut>Hybrid Audio Engine (Web Audio Synth + Audio Buffer MP3s) + Canvas Confetti + SVG Vector Graphics.</beslut>
-    <kärna>Web Audio context låses upp vid första touch-interaktionen på iOS Safari.</kärna>
-    <motivering>Garangerar att ljud fungerar i iOS Safari samt ger knivskarp grafik på Retina-skärmar.</motivering>
+    <beslut>100% Web Audio API Synthesizer (inga externa MP3-filer) + Canvas Confetti + Inline SVG Vector Graphics.</beslut>
+    <kärna>Eliminerar externa nätverksanrop, CORS-fel och pre-loading för ljud och grafik.</kärna>
+    <motivering>Garanterar 0ms laddningstid och 100% tillförlitlig uppspelning på iOS Safari.</motivering>
   </record>
 </decision_ledger>
