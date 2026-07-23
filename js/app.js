@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Initial State Check (localStorage)
   const isAlreadyUnlocked = localStorage.getItem('SamsoniteVictoryUnlocked') === 'true';
   if (isAlreadyUnlocked) {
-    // Show Lobby, but Start button says "VISA DEIN SEGERPASS 👑"
+    // Show Lobby, but Start button says "VISA DITT SEGERPASS 👑"
     btnStart.querySelector('span').textContent = 'VISA DITT SEGERPASS 👑';
   }
 

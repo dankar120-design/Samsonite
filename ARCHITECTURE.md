@@ -6,7 +6,7 @@
 Upon accessing the site on an iPhone, the birthday boy experiences a multi-stage interactive journey:
 1. **Fortnite Lobby & Audio Unlock**: Player card `SAM | LEVEL 10`, starting Web Audio context.
 2. **Fortnite Memory Challenge**: 10 cards (5 matching pairs) with crisp inline SVG icons.
-3. **Supply Drop Unboxing**: A animated Fortnite Supply Drop descends with sound effects, opened by tapping.
+3. **Supply Drop Unboxing**: An animated Fortnite Supply Drop descends with sound effects, opened by tapping.
 4. **Victory Royale & 300 SEK Amazon Victory Pass**: Particle confetti explosion, Victory Royale fanfare, and an animated 300 SEK Amazon credit pass.
 
 ---
