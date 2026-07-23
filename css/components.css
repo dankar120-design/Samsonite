@@ -456,6 +456,17 @@
   line-height: 1.3;
 }
 
+.pass-body a {
+  color: var(--color-fn-yellow);
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+.pass-body a:hover,
+.pass-body a:active {
+  color: var(--color-legendary-gold);
+}
+
 .pass-footer {
   width: 100%;
   margin-top: 1rem;
